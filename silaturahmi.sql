@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2023 at 10:19 AM
+-- Generation Time: Apr 26, 2023 at 10:36 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -48,6 +48,15 @@ CREATE TABLE `roles` (
   `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `nama`) VALUES
+(1, 'admin'),
+(2, 'pejabat'),
+(3, 'reguler');
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +67,16 @@ CREATE TABLE `types` (
   `id` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `types`
+--
+
+INSERT INTO `types` (`id`, `nama`) VALUES
+(1, 'pesan'),
+(2, 'ucapan'),
+(3, 'informasi'),
+(4, 'saran');
 
 -- --------------------------------------------------------
 
@@ -77,6 +96,15 @@ CREATE TABLE `users` (
   `agama` varchar(50) NOT NULL,
   `role_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `nama`, `alamat`, `tgl_lahir`, `no_telp`, `jenis_kelamin`, `agama`, `role_id`) VALUES
+(1, 'admin@gmail.com', '123456', 'Admin', 'Admin Staycation', '2013-04-10', '08123456789', 'L', 'Islam', 1),
+(2, 'walikotasby@gmail.com', '123456', 'Eri Cahyadi', 'Surabaya', '2014-04-09', '0812376444', 'L', 'Islam', 2),
+(3, 'pweb@gmail.com', '123123', 'Weynard', 'Jalan Surabaya', '2003-03-12', '08222222222', 'L', 'Katolik', 3);
 
 --
 -- Indexes for dumped tables
@@ -126,19 +154,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
