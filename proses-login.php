@@ -11,7 +11,7 @@ if (isset($_POST['login'])){
     if (mysqli_num_rows($res) === 1){
         $row = mysqli_fetch_assoc($res);
         if ($password == $row['password']){
-            $_SESSION['login'] = true;
+            $_SESSION['user_id'] = $row['id'];
             header('Location: index.php');
             exit;
         }
