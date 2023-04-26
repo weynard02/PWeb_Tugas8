@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2023 at 11:13 AM
+-- Generation Time: Apr 26, 2023 at 10:19 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `pengirim_user_id` int(11) NOT NULL,
+  `penerima_user_id` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
   `subject` varchar(100) NOT NULL,
   `description` text NOT NULL,
@@ -86,9 +87,10 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_user` (`user_id`),
   ADD KEY `fk_type` (`type_id`),
-  ADD KEY `fk_reply` (`message_ref_id`);
+  ADD KEY `fk_reply` (`message_ref_id`),
+  ADD KEY `fk_pengirim_user` (`pengirim_user_id`),
+  ADD KEY `fk_penerima_user` (`penerima_user_id`);
 
 --
 -- Indexes for table `roles`
@@ -146,9 +148,10 @@ ALTER TABLE `users`
 -- Constraints for table `messages`
 --
 ALTER TABLE `messages`
+  ADD CONSTRAINT `fk_penerima_user` FOREIGN KEY (`penerima_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_pengirim_user` FOREIGN KEY (`pengirim_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_reply` FOREIGN KEY (`message_ref_id`) REFERENCES `messages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_type` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_type` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`
