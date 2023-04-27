@@ -10,7 +10,7 @@ if (isset($_POST['message'])){
     $subject = $_POST['subject'];
     $description = $_POST['description'];
 
-    if ($subject == '' || $description == ''){
+    if ($penerima_user_id == '' || $type_id == '' || $subject == '' || $description == ''){
         header('Location: message-form.php');
         exit;
     }
