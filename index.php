@@ -26,11 +26,16 @@
         $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM users WHERE id = '$uid'"));
         $rid = $user['role_id'];
         $role = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM roles WHERE id = '$rid'"));
-        if ($role['nama'] != "pejabat"){
+        if ($role['nama'] == "reguler"){
             echo '<a class="btn btn-primary" href="message-form.php" role="button">Add Message</a>';
         }
 
-        $msg = mysqli_query($conn, "SELECT * FROM messages WHERE pengirim_user_id = '$uid' OR penerima_user_id = '$uid'");
+        if ($role['nama'] == "admin") {
+            $msg = mysqli_query($conn, "SELECT * FROM messages");
+        }
+        else {
+            $msg = mysqli_query($conn, "SELECT * FROM messages WHERE pengirim_user_id = '$uid' OR penerima_user_id = '$uid'");
+        }
         if (mysqli_num_rows($msg) > 0){
             echo '<table class="table">
                 <thead>
