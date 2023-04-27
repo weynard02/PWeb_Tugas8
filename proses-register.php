@@ -5,8 +5,13 @@ include('config.php');
 if (isset($_POST['register'])){
     $email = $_POST['email'];
 
-    $res = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
-    if (mysqli_num_rows($res) === 1){
+    if (strpos($email, '@') == true) {
+        $res = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+        if (mysqli_num_rows($res) === 1){
+            header('Location: register-form.php');
+            exit;
+        }
+    } else {
         header('Location: register-form.php');
         exit;
     }
@@ -20,8 +25,12 @@ if (isset($_POST['register'])){
     $agama = $_POST['agama'];
     $role_id = $_POST['role_id'];
 
-    mysqli_query($conn, "INSERT INTO users VALUES ('', '$email', '$password', '$nama', '$alamat', '$tgl_lahir', '$no_telp', '$jenis_kelamin', '$agama', '$role_id')");
+    if ($password == '' || $nama == '' || $alamat == '' || $tgl_lahir == '' || $no_telp == ''){
+        header('Location: register-form.php');
+        exit;
+    }
 
+    mysqli_query($conn, "INSERT INTO users VALUES ('', '$email', '$password', '$nama', '$alamat', '$tgl_lahir', '$no_telp', '$jenis_kelamin', '$agama', '$role_id')");
     header('Location: login-form.php');
 }
 
