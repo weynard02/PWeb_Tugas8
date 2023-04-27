@@ -28,6 +28,13 @@
 <body>
     <div class="container">
         <h1 align="center" class="mt-5">Halo <?php echo $user['nama'];?></h1>
+
+        <?php
+            if (isset($_SESSION['sukses'])) {
+                echo "<div class='alert alert-success' role='alert'>".$_SESSION['sukses']."</div>";
+                unset($_SESSION['sukses']);
+            }
+        ?>
         <a class="btn btn-danger mb-3" href="proses-logout.php" role="button">Log out</a>
 
         <?php
@@ -52,6 +59,7 @@
                         <th scope="col">type</th>
                         <th scope="col">subject</th>
                         <th scope="col">description</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>';
@@ -78,6 +86,10 @@
                         echo '<td><a class="btn btn-info" href="reply-form.php?message_id=' . $row['id'] . '" role="button">Reply Message</a></td>';
                     }
                     
+                    else {
+                        echo '<td></td>';
+                    }
+                    
 
                     echo '</tr>';
                     $theid = $row['id'];
@@ -99,7 +111,8 @@
                         <td>' . $penerima['nama'] . '</td>
                         <td>' . $type['nama'] . '</td>
                         <td>' . $row2['subject'] . '</td>
-                        <td>' . $row2['description'] . '</td>';   
+                        <td>' . $row2['description'] . '</td>
+                        <td></td>';   
                         echo '</tr>';
                     }
                 }
