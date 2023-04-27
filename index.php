@@ -23,14 +23,54 @@
     <?php
         include('config.php');
         $uid = $_SESSION['user_id'];
-        $row = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM users WHERE id = '$uid'"));
-        $rid = $row['role_id'];
-        $row = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM roles WHERE id = '$rid'"));
-        if ($row['nama'] != "pejabat"){
+        $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM users WHERE id = '$uid'"));
+        $rid = $user['role_id'];
+        $role = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM roles WHERE id = '$rid'"));
+        if ($role['nama'] != "pejabat"){
             echo '<a class="btn btn-primary" href="message-form.php" role="button">Add Message</a>';
         }
-        if ($row['nama'] != "reguler"){
-            echo '<a class="btn btn-info" href="reply-form.php" role="button">Reply Message</a>';
+
+        $msg = mysqli_query($conn, "SELECT * FROM messages WHERE pengirim_user_id = '$uid' OR penerima_user_id = '$uid'");
+        if (mysqli_num_rows($msg) > 0){
+            echo '<table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">pengirim</th>
+                    <th scope="col">penerima</th>
+                    <th scope="col">type</th>
+                    <th scope="col">subject</th>
+                    <th scope="col">description</th>
+                </tr>
+                </thead>
+                <tbody>';
+            
+            while ($row = $msg->fetch_assoc()){
+                $pengirim_id = $row['pengirim_user_id'];
+                $penerima_id = $row['penerima_user_id'];
+                $type_id = $row['type_id'];
+
+                $pengirim = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM users WHERE id = '$pengirim_id'"));
+                $penerima = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM users WHERE id = '$penerima_id'"));
+                $type = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM types WHERE id = '$type_id'"));
+
+                echo '<tr>
+                        <th scope="row">' . $row['id'] . '</th>
+                        <td>' . $pengirim['nama'] . '</td>
+                        <td>' . $penerima['nama'] . '</td>
+                        <td>' . $type['nama'] . '</td>
+                        <td>' . $row['subject'] . '</td>
+                        <td>' . $row['description'] . '</td>';
+
+                if ($role['nama'] != "reguler" && $pengirim_id != $_SESSION['user_id']){
+                    echo '<td><a class="btn btn-info" href="reply-form.php?message_id=' . $row['id'] . '" role="button">Reply Message</a></td>';
+                }
+                
+
+                echo '</tr>';
+            }
+            echo '</tbody>
+                </table>';
         }
     ?>
     
