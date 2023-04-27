@@ -94,7 +94,7 @@
                     <button type="submit" class="btn btn-primary" name="register">Register</button>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center mb-3">
                 <div class="col-sm-4">
                 <?php
                     if (isset($_SESSION['failed'])) {
