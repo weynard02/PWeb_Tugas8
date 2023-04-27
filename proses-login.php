@@ -16,8 +16,7 @@ if (isset($_POST['login'])){
             exit;
         }
     }
-    
+    $_SESSION['failed'] = "Login failed";
     header('Location: login-form.php');
 }
-
 ?>

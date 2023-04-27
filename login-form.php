@@ -31,6 +31,12 @@
             <button type="submit" class="btn btn-primary" name="login">Login</button>
         </ul>
     </form>
+    <?php
+        if (isset($_SESSION['failed'])) {
+            echo "<div class='alert alert-danger' role='alert'>".$_SESSION['failed']."</div>";
+            unset($_SESSION['failed']);
+        }
+    ?>
     <a class="btn btn-danger" href="register-form.php" role="button">Register</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>

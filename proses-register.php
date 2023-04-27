@@ -1,17 +1,19 @@
 <?php
 
+session_start();
 include('config.php');
 
 if (isset($_POST['register'])){
     $email = $_POST['email'];
-
     if (strpos($email, '@') == true) {
         $res = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
         if (mysqli_num_rows($res) === 1){
+            $_SESSION['failed'] = "Email not available!";
             header('Location: register-form.php');
             exit;
         }
     } else {
+        $_SESSION['failed'] = "Format email tidak tepat!";
         header('Location: register-form.php');
         exit;
     }
@@ -26,6 +28,7 @@ if (isset($_POST['register'])){
     $role_id = $_POST['role_id'];
 
     if ($password == '' || $nama == '' || $alamat == '' || $tgl_lahir == '' || $no_telp == '' || $jenis_kelamin == '' || $agama == '' || $role_id == ''){
+        $_SESSION['failed'] = "Data tidak lengkap!";
         header('Location: register-form.php');
         exit;
     }

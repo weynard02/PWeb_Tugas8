@@ -11,6 +11,7 @@ if (isset($_POST['message'])){
     $description = $_POST['description'];
 
     if ($penerima_user_id == '' || $type_id == '' || $subject == '' || $description == ''){
+        $_SESSION['failed'] = "Data tidak lengkap!";
         header('Location: message-form.php');
         exit;
     }
