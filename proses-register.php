@@ -25,7 +25,7 @@ if (isset($_POST['register'])){
     $agama = $_POST['agama'];
     $role_id = $_POST['role_id'];
 
-    if ($password == '' || $nama == '' || $alamat == '' || $tgl_lahir == '' || $no_telp == ''){
+    if ($password == '' || $nama == '' || $alamat == '' || $tgl_lahir == '' || $no_telp == '' || $jenis_kelamin == '' || $agama == '' || $role_id == ''){
         header('Location: register-form.php');
         exit;
     }
