@@ -55,7 +55,7 @@
             </div>
             <div class="row mb-3 justify-content-center align-items-center">
                 <div class="col-sm-4"> 
-                    <label for="no_telp" class="form-label">no_telp</label>
+                    <label for="no_telp" class="form-label">Nomor Telepon</label>
                     <input type="text" class="form-control" name="no_telp" id="no_telp">
                 </div>
             </div>
