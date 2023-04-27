@@ -68,7 +68,7 @@
                     </select>
                 </div>
                 <div class="col-sm-2"> 
-                    <label for="agama" class="form-label">Password</label>
+                    <label for="agama" class="form-label">Agama</label>
                     <select name="agama" class="form-select">
                         <option>Islam</option>
                         <option>Kristen</option>
