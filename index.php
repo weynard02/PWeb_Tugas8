@@ -47,7 +47,7 @@
                 $msg = mysqli_query($conn, "SELECT * FROM messages WHERE message_ref_id IS NULL");
             }
             else {
-                $msg = mysqli_query($conn, "SELECT * FROM messages WHERE pengirim_user_id = '$uid' OR penerima_user_id = '$uid' AND message_ref_id IS NULL");
+                $msg = mysqli_query($conn, "SELECT * FROM messages WHERE (pengirim_user_id = '$uid' OR penerima_user_id = '$uid') AND message_ref_id IS NULL");
             }
             if (mysqli_num_rows($msg) > 0){
                 echo '<h2>History</h2>';
