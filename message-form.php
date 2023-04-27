@@ -38,7 +38,7 @@
                 include('config.php');
                 $pej = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM roles WHERE nama LIKE 'pejabat'"));
                 $pejabat_id = $pej['id'];
-                $res = mysqli_query($conn, "SELECT * FROM users WHERE id = '$pejabat_id'");
+                $res = mysqli_query($conn, "SELECT * FROM users WHERE role_id = '$pejabat_id'");
                 echo '<div class="row mb-3 justify-content-center align-items-center">
                 <div class="col-sm-4">';
                 echo '<label for="penerima_user_id" class="form-label">Penerima </label>';
