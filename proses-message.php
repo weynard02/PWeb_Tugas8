@@ -17,6 +17,7 @@ if (isset($_POST['message'])){
     }
     
     mysqli_query($conn, "INSERT INTO messages VALUES ('', '$pengirim_user_id', '$penerima_user_id', '$type_id', '$subject', '$description', NULL)");
+    $_SESSION['sukses'] = "Pesan berhasil disampaikan";
     header('Location: index.php');
 }
 
