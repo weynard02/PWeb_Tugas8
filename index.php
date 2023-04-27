@@ -62,7 +62,7 @@
                         <td>' . $row['subject'] . '</td>
                         <td>' . $row['description'] . '</td>';
 
-                if ($role['nama'] != "reguler" && $pengirim_id != $_SESSION['user_id']){
+                if (($role['nama'] != "reguler" && $pengirim_id != $_SESSION['user_id']) || $role['nama'] == "admin"){
                     echo '<td><a class="btn btn-info" href="reply-form.php?message_id=' . $row['id'] . '" role="button">Reply Message</a></td>';
                 }
                 
