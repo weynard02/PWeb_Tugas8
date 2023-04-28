@@ -27,7 +27,8 @@
 
 <body>
     <div class="container">
-        <h1 align="center" class="mt-5">Halo <?php echo $user['nama'];?></h1>
+        <h1 align="center" class="mt-5">Halo <?php echo $user['nama'];?>!</h1>
+        <h4 align="center"> Apa yang ingin anda sampaikan? </h4>
 
         <?php
             if (isset($_SESSION['sukses'])) {
