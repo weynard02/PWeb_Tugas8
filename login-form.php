@@ -50,6 +50,13 @@
                         unset($_SESSION['failed']);
                     }
                 ?>
+                
+                <?php
+                    if (isset($_SESSION['sukses'])) {
+                        echo "<div class='alert alert-success' role='alert'>".$_SESSION['sukses']."</div>";
+                        unset($_SESSION['sukses']);
+                    }
+                ?>
                 </div>
             </div>
         </form>        

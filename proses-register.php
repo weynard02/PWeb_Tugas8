@@ -34,6 +34,7 @@ if (isset($_POST['register'])){
     }
 
     mysqli_query($conn, "INSERT INTO users VALUES ('', '$email', '$password', '$nama', '$alamat', '$tgl_lahir', '$no_telp', '$jenis_kelamin', '$agama', '$role_id')");
+    $_SESSION['sukses'] = "Pengguna sudah terdaftar! Silakan login!";
     header('Location: login-form.php');
 }
 
