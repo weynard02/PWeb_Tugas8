@@ -31,66 +31,46 @@
 </head>
 
 <body>
-    <div class="container index position-absolute top-50 start-50 translate-middle">
-        <h1 align="center">Add Message</h1>
+    <div class="form-container">
+        
         <form action="proses-message.php" method="post">
+            <h3>Add Message</h3>
             <?php
                 include('config.php');
                 $pej = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM roles WHERE nama LIKE 'pejabat'"));
                 $pejabat_id = $pej['id'];
                 $res = mysqli_query($conn, "SELECT * FROM users WHERE role_id = '$pejabat_id'");
-                echo '<div class="row mb-3 justify-content-center align-items-center">
-                <div class="col-sm-4">';
                 echo '<label for="penerima_user_id" class="form-label">Penerima </label>';
                 echo '<select name="penerima_user_id" class="form-select">';
                 while ($row = $res->fetch_assoc()){
                     echo "<option value='" . $row['id'] . "'>" . $row['nama'] . "</option>";
                 }
                 echo '</select>';
-                echo '</div>
-                </div>';
 
                 $res = mysqli_query($conn, "SELECT * FROM types");
-                echo '<div class="row mb-3 justify-content-center align-items-center">
-                <div class="col-sm-4">';
                 echo '<label for="type_id" class="form-label">Tipe Pesan </label>';
                 echo '<select name="type_id" class="form-select">';
                 while ($row = $res->fetch_assoc()){
                     echo "<option value='" . $row['id'] . "'>" . $row['nama'] . "</option>";
                 }
                 echo '</select>';
-                echo '</div>
-                </div>';
             ?>
 
-            <div class="row mb-3 justify-content-center align-items-center">
-                <div class="col-sm-4">
-                    <label for="subject" class="form-label">Subject</label>
-                    <input type="text" class="form-control" name="subject" id="subject">
-                </div>
-            </div>
-            <div class="row mb-3 justify-content-center align-items-center">
-                <div class="col-sm-4">
-                    <label for="description" class="form-label">Body</label>
-                    <textarea class="form-control" name="description" id="description" style="height: 100px"></textarea>
-                </div>
-            </div>
-            <div class="row mb-3 justify-content-center align-items-center">
-                <div class="col-sm-4">
-                    <a class="btn btn-secondary" href="index.php" role="button">Back</a>
-                    <button type="submit" class="btn btn-success" name="message">Send</button>
-                </div>
-            </div>
-            <div class="row mb-3 justify-content-center align-items-center">
-                <div class="col-sm-4">
-                <?php
-                    if (isset($_SESSION['failed'])) {
-                        echo "<div class='alert alert-danger' role='alert'>".$_SESSION['failed']."</div>";
-                        unset($_SESSION['failed']);
-                    }
-                ?>
-                </div>
-            </div>
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" name="subject" id="subject">
+
+            <label for="description" class="form-label">Body</label>
+            <textarea class="form-control" name="description" id="description" style="height: 100px"></textarea>
+
+            <br>
+            <a class="btn btn-secondary" href="index.php" role="button">Back</a>
+            <button type="submit" class="btn btn-success" name="message">Send</button>
+            <?php
+                if (isset($_SESSION['failed'])) {
+                    echo "<div class='alert alert-danger' role='alert'>".$_SESSION['failed']."</div>";
+                    unset($_SESSION['failed']);
+                }
+            ?>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
