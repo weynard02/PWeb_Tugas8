@@ -22,7 +22,7 @@
    
 <div class="form-container">
     <form action="proses-register.php" method="post">
-        <img src="0.webp">
+        <img src="img/0.webp">
         <h3>register now</h3>
 
         <p>Email<sup>*</sup></p>
