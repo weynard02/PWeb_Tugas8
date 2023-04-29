@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login form</title>
+    <title>Login Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
@@ -23,7 +23,7 @@
 <div class="form-container">
     <form action="proses-login.php" method="post">
         <img src="img/0.webp" style="top:-15%;">
-        <h3>login now</h3>
+        <h3>selamat datang</h3>
         <p>Email<sup>*</sup></p>
         <input type="text" class="form-control" name="email" id="email" required placeholder="enter your email">
         <p>Password<sup>*</sup></label>
