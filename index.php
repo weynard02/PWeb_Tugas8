@@ -59,7 +59,7 @@
                 echo '<table class="table table-light">
                     <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">No</th>
                         <th scope="col">Pengirim</th>
                         <th scope="col">Penerima</th>
                         <th scope="col">Type</th>
@@ -70,7 +70,9 @@
                     </thead>
                     <tbody>';
                 
+                $i = 0;
                 while ($row = $msg->fetch_assoc()){
+                    $i++;
                     $pengirim_id = $row['pengirim_user_id'];
                     $penerima_id = $row['penerima_user_id'];
                     $type_id = $row['type_id'];
@@ -80,7 +82,7 @@
                     $type = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM types WHERE id = '$type_id'"));
 
                     echo '<tr>
-                            <th scope="row">' . $row['id'] . '</th>
+                            <th scope="row">' . $i . '</th>
                             <td>' . $pengirim['nama'] . '</td>
                             <td>' . $penerima['nama'] . '</td>
                             <td>' . $type['nama'] . '</td>
@@ -98,7 +100,6 @@
                     
 
                     echo '</tr>';
-                    $theid = $row['id'];
                     $reply = mysqli_query($conn, "SELECT * from messages WHERE message_ref_id = ".$row['id']);
 
                     if (!isset($reply)) continue;
@@ -112,7 +113,7 @@
                         $type = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM types WHERE id = '$type_id'"));
 
                         echo '<tr>
-                        <th scope="row"> > '.$row2['id'].' </th>
+                        <th scope="row"> > </th>
                         <td>' . $pengirim['nama'] . '</td>
                         <td>' . $penerima['nama'] . '</td>
                         <td>' . $type['nama'] . '</td>
