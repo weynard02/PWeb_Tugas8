@@ -84,8 +84,8 @@
             </div>
             <div class="row mb-3 justify-content-center align-items-center">
                 <div class="col-sm-4">
-                    <a class="btn btn-info" href="index.php" role="button">Back</a>    
-                    <button type="submit" class="btn btn-primary" name="reply">Send</button>
+                    <a class="btn btn-secondary" href="index.php" role="button">Back</a>    
+                    <button type="submit" class="btn btn-success" name="reply">Send</button>
                 </div>
             </div>
             <div class="row mb-3 justify-content-center align-items-center">

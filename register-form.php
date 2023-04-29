@@ -90,7 +90,7 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-4">
-                    <a class="btn btn-info" href="login-form.php" role="button">Back</a>
+                    <a class="btn btn-secondary" href="login-form.php" role="button">Back</a>
                     <button type="submit" class="btn btn-primary" name="register">Register</button>
                 </div>
             </div>

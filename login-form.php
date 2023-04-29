@@ -21,7 +21,7 @@
 
 <body>
     <div class="container index position-absolute top-50 start-50 translate-middle">
-        <h1 class="welcome" align="center">Selamat Datang!</h1>
+        <h1 align="center">Selamat Datang!</h1>
         <form action="proses-login.php" method="post">
             <div class="row mb-3 justify-content-center align-items-center">
                 <div class="col-sm-4">
@@ -37,7 +37,7 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary" name="login">Login</button>
+                    <button type="submit" class="btn btn-success" name="login">Login</button>
                     <a class="btn btn-danger" href="register-form.php" role="button">Register</a>
                 </div>
                 

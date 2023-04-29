@@ -28,7 +28,11 @@
 <body>
     <div class="container">
         <h1 align="center" class="mt-5">Halo <?php echo $user['nama'];?>!</h1>
-        <h4 align="center"> Apa yang ingin anda sampaikan? </h4>
+        <?php
+            if ($role['nama'] == "reguler") {
+                echo '<h4 align="center"> Apa yang ingin anda sampaikan? </h4>';
+            }
+        ?>
 
         <?php
             if (isset($_SESSION['sukses'])) {
@@ -36,12 +40,12 @@
                 unset($_SESSION['sukses']);
             }
         ?>
-        <a class="btn btn-danger mb-3" href="proses-logout.php" role="button">Log out</a>
+        
 
         <?php
             
             if ($role['nama'] == "reguler"){
-                echo '<a class="btn btn-primary mb-3" href="message-form.php" role="button">+ Add Message</a>';
+                echo '<a class="btn btn-primary btn-lg mb-3" href="message-form.php" role="button">+ Add Message</a>';
             }
 
             if ($role['nama'] == "admin") {
@@ -55,12 +59,12 @@
                 echo '<table class="table table-light">
                     <thead>
                     <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">pengirim</th>
-                        <th scope="col">penerima</th>
-                        <th scope="col">type</th>
-                        <th scope="col">subject</th>
-                        <th scope="col">description</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Pengirim</th>
+                        <th scope="col">Penerima</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Description</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -122,6 +126,7 @@
                     </table>';
             }
         ?>
+        <a class="btn btn-danger mb-3" href="proses-logout.php" role="button">Log out</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
