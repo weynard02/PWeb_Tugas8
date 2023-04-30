@@ -12,7 +12,7 @@ Kelompok PWEB:
 
 Sebelum digunakan dengan localhost, pastikan mengimpor file sql terlebih dahulu.
 
-Ada 3 jenis user untuk aplikasi ini: reguler, pejabat, dan admin
+Ada 3 jenis user untuk aplikasi ini: reguler, pejabat, dan admin\
 Seeder tersedia sebagai berikut
 
 **Reguler:**\
@@ -27,5 +27,5 @@ Password: 123456
 Email: admin@gmail.com\
 Password: 123456
 
-Dokumentasi Blog: https://alexanderweynard.blogspot.com/2023/04/tugas-pemrograman-web-silaturahmi-online.html
+
 
