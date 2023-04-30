@@ -2,7 +2,7 @@
 
 ## Silaturahmi Online dengan implementasi Back-end
 
-Kelompok PWEB:
+Kelompok PWEB A, Tahun 2022/2023 (Genap):
 | NRP        | Nama                 |
 |------------|----------------------|
 | 5025211008 | Muhammad Razan A.    |
@@ -29,3 +29,4 @@ Password: 123456
 
 
 
+Dokumentasi Blog: https://alexanderweynard.blogspot.com/2023/04/tugas-pemrograman-web-silaturahmi-online.html
